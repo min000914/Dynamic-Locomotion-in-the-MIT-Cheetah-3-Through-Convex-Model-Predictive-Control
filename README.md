@@ -3,6 +3,26 @@
 [MPC논문pdf](https://dspace.mit.edu/bitstream/handle/1721.1/138000/convex_mpc_2fix.pdf)
 [로봇몸체논문pdf](https://dspace.mit.edu/bitstream/handle/1721.1/126619/IROS.pdf)
 
+# 프로젝트 설계
+
+### 1. 설정 및 초기화 모듈 (`Main.m`)
+
+로봇의 스펙과 제어기의 파라미터들을 세팅하고 초기값을 설정합니다.
+
+* **로봇 물리 파라미터:** 질량($m$), 관성 모멘트 텐서($I$), 초기 위치 및 자세, 로봇의 크기(길이, 너비, 높이), 중력가속도
+* **보행 파라미터:** 걸음걸이 종류, MPC 제어 주기, MPC Horizon, 전체 보행 주기, 발이 땅에 닿는 시간, 발이 공중에 뜨는 시간
+* **시뮬레이션 파라미터:** 시뮬레이션 구동 총 시간, 단위 타임 스텝($dt$)
+* **MPC 상태 오차 가중치:** 로봇이 목표 위치, 속도, 자세(Roll, Pitch, Yaw)에 대해 무엇이 우선인지 결정하는 값
+* **MPC 제어 입력 가중치:** 지면 반력을 계산할 때 힘의 사용량을 결정하는 값, 각 발이 낼 수 있는 힘의 최소/최대값, 마찰계수
+
+### 2. 궤적 및 보행 생성 모듈
+
+
+* 발의 궤적을 걸음걸이 종류에 따라 계획 및 계산하는 모듈, 식(33)
+* 몸통(무게중심)을 커맨드를 바탕으로 Horizon 동안 움직여야할 궤적을 생성
+  
+> "All parameters are commanded directly by the robot operator except for yaw and xy-position, which are determined by integrating the appropriate velocities. The other states (roll, pitch, roll rate, pitch rate, and z-velocity) are always set to 0."
+
 # 주요 파라미터
 <로봇 논문 발췌> 
 
