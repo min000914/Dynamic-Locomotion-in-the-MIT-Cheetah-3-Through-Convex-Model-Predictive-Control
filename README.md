@@ -1,6 +1,16 @@
 # Dynamic-Locomotion-in-the-MIT-Cheetah-3-Through-Convex-Model-Predictive-Control
 
-[pdf](https://dspace.mit.edu/bitstream/handle/1721.1/138000/convex_mpc_2fix.pdf)
+[MPC논문pdf](https://dspace.mit.edu/bitstream/handle/1721.1/138000/convex_mpc_2fix.pdf)
+[로봇몸체논문pdf](https://dspace.mit.edu/bitstream/handle/1721.1/126619/IROS.pdf)
+
+# 주요 파라미터
+<로봇 논문 발췌> 
+
+<img width="479" height="324" alt="Image" src="https://github.com/user-attachments/assets/7d2f05d2-1d84-4814-89f6-32ab27b6345b" /> 
+
+<MPC논문 발췌>
+
+<img width="603" height="361" alt="Image" src="https://github.com/user-attachments/assets/42fe42ce-5103-477a-a026-950fc61c6e45" />
 
 # 식 내용 정리
 ## Swing Leg Control
