@@ -1,9 +1,23 @@
 # Dynamic-Locomotion-in-the-MIT-Cheetah-3-Through-Convex-Model-Predictive-Control
 
 [MPC논문pdf](https://dspace.mit.edu/bitstream/handle/1721.1/138000/convex_mpc_2fix.pdf)
+
 [로봇몸체논문pdf](https://dspace.mit.edu/bitstream/handle/1721.1/126619/IROS.pdf)
 
 # 프로젝트 설계
+
+<img width="1111" height="311" alt="Image" src="https://github.com/user-attachments/assets/e3adfa00-0393-4819-b7d6-c3522bafef2f" />
+
+해당 설계는 논문의 설계로 몸통, 다리의 모든 제어를 담은 설계입니다.
+
+하지만 본 프로젝트에서는 몸통의 움직임만을 제어하는 MPC를 설계하는 것이 목적이므로 다음과 같이 설계를 간략화 할 수 있습니다.
+
+<img width="1592" height="509" alt="Image" src="https://github.com/user-attachments/assets/1283c2ef-dd15-4314-8bc6-63207de5b30e" />
+
+
+* Reference Trajectory: 사용자 입력(CMD), 현재 로봇의 상태(state), 시간(t)을 바탕으로 로봇 몸통의 **목표 궤적(state_trajectory), 보행 패턴(gait)** 을 생성합니다.
+* MPC:  현재 상태(state), 목표 궤적(state_trajectory), 보행 패턴(gait), 시간(t)를 입력받습니다. 이를 바탕으로 Convex Optimization 문제를 풀어 네 발이 지면에 가해야 하는 **3차원 지면 반력(F)** 을 계산합니다.
+* Dynamics: 가상의 물리 엔진 역할을 수행합니다. MPC에서 계산된 지면 반력(F)을 물리 법칙에 따라 시뮬레이션하여 다음 스텝의 **로봇 현재 상태(state)**를 계산합니다.
 
 ### 1. 설정 및 초기화  (`Main.m`)
 
